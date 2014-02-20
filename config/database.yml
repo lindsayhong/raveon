@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql #sqlite3
-  database: db/development.sqlite3
+  database: rave_on_v_02_development#db/development.sqlite3
   pool: 5
   timeout: 5000
 

@@ -8,9 +8,11 @@ RaveOnV02::Application.routes.draw do
 
   root :to => "events#index"
 
+  resources :users
+
   resources :events
 
-  resources :user do
+  resources :users do
     resources :user_events
   end
 

@@ -1,2 +1,3 @@
 <h1>UserEvents#show</h1>
 <p>Find me in app/views/user_events/show.html.erb</p>
+<%= link_to "Not going to this event", user_user_event_path(current_user, @user_event), :method => :delete %>

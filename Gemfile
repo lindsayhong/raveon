@@ -7,15 +7,14 @@ gem 'rails', '4.0.1'
 # gem 'sqlite3'
 
 #OLD VERSION
-# group :development do
-# 	gem 'sqlite3'
-# end
+group :development do
+	gem 'sqlite3'
+end
 
-# group :production do
-# 	gem 'pg'
-# end
+group :production do
+	gem 'pg'
+end
 
-gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

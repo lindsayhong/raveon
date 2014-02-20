@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   def index
   	@events = Event.all.sort_by! &:start_date
     @user_events = UserEvent.where(user_id: current_user)
-    @event_array = []
   end
 
   def show
   	@event = Event.find(params[:id])
+    @events = Event.all.sort_by! &:start_date
+    @user_events = UserEvent.where(user_id: current_user)
   end
 
   def new

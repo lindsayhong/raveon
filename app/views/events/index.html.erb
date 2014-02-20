@@ -1,0 +1,23 @@
+<h1>My Events</h1>
+<% @user_events.each do |user_event| %>
+	<ul>
+		<li><%= link_to "#{find_event_date(user_event.event_id)} - #{find_event_name(user_event.event_id)}", event_path(user_event.event_id) %></li>
+	</ul>
+	<% @event_array << user_event.event_id %>
+<% end %>
+
+<h1>Other Events</h1>
+<p></p>
+
+<% @events.each do |event| %>
+	<ul>
+		<% if @event_array.include?(event.id) %>
+		<% else %>
+			<li><%= link_to "#{event.start_date} - #{event.event_name}", event_path(event.id) %> - <%= link_to "Join event", new_user_user_event_path(current_user.id, :event_id => event.id) %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<br>
+
+<%= link_to "+ Add Event", new_event_path  %>

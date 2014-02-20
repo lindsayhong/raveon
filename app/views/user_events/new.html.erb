@@ -1,0 +1,26 @@
+<%= form_for [@user, @user_event] do |form|  %>
+
+		<%= form.hidden_field :user_id, value: current_user.id %>
+		<%= form.hidden_field :event_id, value: params[:event_id] %>
+
+	<p>
+		<%= form.label :ticket_type, "What kind of ticket do you have?" %>
+		<%= form.text_field :ticket_type %>
+	</p>
+
+	<p>
+		<%= form.label :lodging, "Where are you staying?" %>
+		<%= form.text_field :lodging %>
+
+	</p>
+
+	<p>
+		<%= form.label :note, "Anything else?" %>
+		<%= form.text_area :lodging %>
+
+	</p>
+
+	<p>
+		<%= form.submit "Eat. Sleep. Rave. Repeat. (Submit)" %>
+	</p>
+<% end %>

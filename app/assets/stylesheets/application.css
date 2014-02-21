@@ -13,8 +13,19 @@
  */
 
 
+
 body {
 	background-color: #E0E4CC;
+	padding: 0px;
+}
+
+#top_bar {
+  position: relative;
+  width: 900px;
+  background-color: #69D2E7;
+  margin: 0px;
+  padding: 5px 30px 5px 30px;
+  font-family: calibri;
 }
 
 #container {
@@ -24,13 +35,7 @@ body {
   margin: auto;
   padding: 30px 50px 30px 50px;
   font-family: Pontano Sans;
-}
-
-#top_bar {
-  position: relative;
-  width: 900px;
-  background-color: white;
-  margin: auto;
+  height: 900px;
 }
 
 h1, h3 {
@@ -38,6 +43,7 @@ h1, h3 {
 }
 
 a {
+	color: black;
 	text-decoration: none;
 }
 

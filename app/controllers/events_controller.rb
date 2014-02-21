@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
   	@events = Event.all.sort_by! &:start_date
     @user_events = UserEvent.where(user_id: current_user)

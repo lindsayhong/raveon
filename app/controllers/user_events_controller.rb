@@ -10,7 +10,7 @@ class UserEventsController < ApplicationController
 		@user = User.find(current_user)
 		@user_event = UserEvent.new(params.require(:user_event).permit(:user_id, :event_id, :ticket_type, :lodging))
 		if @user_event.save
-			redirect_to user_path(@user.id)
+			redirect_to [@user, @user_event]
 		else
 			render action: new
 		end
@@ -18,7 +18,26 @@ class UserEventsController < ApplicationController
  
   def show
   	@user_event = UserEvent.find(params[:id])
-  	@event_id = @user_event.event_id
+  	@event_id = @user_event.event
+  	@event_name = @user_event.event.event_name
+  	@event_start_date = @user_event.event.start_date
+  	@event_end_date = @user_event.event.start_date + @user_event.event.duration - 1
+    @user_events = UserEvent.where(event_id: @event_id)
+  end
+
+  def edit
+  	@user = User.find(current_user)
+  	@user_event = UserEvent.find(params[:id])
+  	@event_name = @user_event.event.event_name
+  end
+
+  def update
+  	@user = User.find(current_user)
+  	@user_event = UserEvent.find(params[:id])
+  	if @user_event.update_attributes(params.require(:user_event).permit(:ticket_type, :lodging))
+  		redirect_to user_user_event_path(current_user, @user_event)
+  	else
+  	end
   end
 
   def destroy

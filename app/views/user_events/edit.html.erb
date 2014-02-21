@@ -1,7 +1,5 @@
+<h1>Update my trip details for <%=  %></h1>
 <%= form_for [@user, @user_event] do |form|  %>
-
-		<%= form.hidden_field :user_id, value: current_user.id %>
-		<%= form.hidden_field :event_id, value: params[:event_id] %>
 
 	<p>
 		<%= form.label :ticket_type, "What kind of ticket do you have?" %>

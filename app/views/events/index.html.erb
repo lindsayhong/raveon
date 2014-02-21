@@ -2,7 +2,7 @@
 <% event_array = Array.new %>
 <% @user_events.each do |user_event| %>
 	<ul>
-		<li><%= link_to "#{find_event_date(user_event.event_id)} - #{find_event_name(user_event.event_id)}", user_user_event_path(current_user, user_event) %></li>
+		<li><%= link_to "#{user_event.event.start_date} - #{user_event.event.event_name}", user_user_event_path(current_user, user_event) %></li>
 	</ul>
 	<% event_array << user_event.event_id %>
 <% end %>

@@ -34,7 +34,7 @@ class UserEventsController < ApplicationController
   def update
   	@user = User.find(current_user)
   	@user_event = UserEvent.find(params[:id])
-  	if @user_event.update_attributes(params.require(:user_event).permit(:ticket_type, :lodging))
+  	if @user_event.update_attributes(params.require(:user_event).permit(:ticket_type, :lodging, :note))
   		redirect_to user_user_event_path(current_user, @user_event)
   	else
   	end

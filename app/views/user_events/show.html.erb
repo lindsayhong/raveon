@@ -18,11 +18,15 @@
 	</tr>
 <table>
 
-<p><%= link_to "Edit my details", edit_user_user_event_path(current_user, @user_event), class: "button" %></p>
 
+	<p><%= link_to "Edit my details", edit_user_user_event_path(current_user, @user_event), class: "button" %></p>
+
+
+	<p><%= link_to "No longer going to this event", user_user_event_path(current_user, params[:id]), :method => :delete, class: "button" %></p>
+	
 <br>
 
-<h1>Others Headliners</h1>
+<h1>Other People Going</h1>
 
 <ol>
 	<% @user_events.each do |attendee|  %>
@@ -30,5 +34,3 @@
 	<% end %>
 </ol>
 
-
-<p><%= link_to "No longer going to this event", user_user_event_path(current_user, params[:id]), :method => :delete, class: "button" %></p>

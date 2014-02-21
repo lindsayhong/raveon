@@ -12,8 +12,6 @@
  *= require_tree .
  */
 
-
-
 body {
 	background-color: #E0E4CC;
 	padding: 0px;
@@ -43,12 +41,12 @@ h1, h3 {
 }
 
 a {
-	color: black;
+	color: #0B2E59;
 	text-decoration: none;
 }
 
 a:visited {
-	color: blue;
+	color: #0B2E59;
 }
 
 a.button {

@@ -3,11 +3,11 @@
 
 	<h1>Festivals</h1>
 
-	<ul>
 		<% @events.each do |event| %>
-				<li><%= link_to "#{event.start_date} - #{event.event_name}", event_path(event.id) %> - <%= link_to "Join", new_user_user_event_path(current_user.id, :event_id => event.id), class: "small_button" %></li>
-		<% end %>
+	<ul>
+				<li><%= link_to "#{event.start_date.strftime("%b %d, %Y")}  |  #{event.event_name}", event_path(event.id) %> - <%= link_to "Join", new_user_user_event_path(current_user.id, :event_id => event.id), class: "small_button" %></li>
 	</ul>
+		<% end %>
 
 <% else %>
 	<h1>My Events</h1>
@@ -16,7 +16,7 @@
 
 	<% @user_events.each do |user_event| %>
 		<ul>
-			<li><%= link_to "#{user_event.event.start_date} - #{user_event.event.event_name}", user_user_event_path(current_user, user_event) %></li>
+			<li><%= link_to "#{user_event.event.start_date.strftime("%b %d, %Y")} - #{user_event.event.event_name}", user_user_event_path(current_user, user_event) %></li>
 		</ul>
 		<% event_array << user_event.event_id %>
 	<% end %>
@@ -29,7 +29,7 @@
 	<ul>
 		<% if event_array.include?(event.id) %>
 		<% else %>
-			<li><%= link_to "#{event.start_date} - #{event.event_name}", event_path(event.id) %> - <%= link_to "Join", new_user_user_event_path(current_user.id, :event_id => event.id) %></li>
+			<li><%= link_to "#{event.start_date.strftime("%b %d, %Y")}  |  #{event.event_name}", event_path(event.id) %> - <%= link_to "Join", new_user_user_event_path(current_user.id, :event_id => event.id), class: "small_button" %></li>
 		<% end %>
 	</ul>
 <% end %>
